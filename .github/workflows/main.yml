@@ -13,7 +13,12 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
-
+    - name: Set up Docker
+      run: |
+        sudo usermod -aG docker $USER
+        sudo systemctl start docker
+        sudo systemctl enable docker
+        docker --version
     - name: Set up SSH
       uses: webfactory/ssh-agent@v0.7.0
       with:
