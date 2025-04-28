@@ -1,6 +1,6 @@
 FROM node:18.2.0-slim AS build
 WORKDIR /app
-COPY package*.json* .
+COPY package*.json* /app/
 RUN npm install
 COPY . .
 RUN npm run build
